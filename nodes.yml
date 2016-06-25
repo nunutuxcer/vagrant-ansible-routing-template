@@ -15,6 +15,11 @@
       network_name: 01-to-04
       method: static
       type: private_network
+    - ip: 192.168.15.11
+      auto_config: "True"
+      network_name: 01-to-05
+      method: static
+      type: private_network
     - ip: 192.168.31.11
       auto_config: "True"
       network_name: 03-to-01
@@ -93,3 +98,24 @@
       network_name: 4-4-4
       method: static
       type: private_network
+- name: r5
+  box: ubuntu/trusty64
+  mem: 512
+  cpus: 1
+  ansible_ssh_host_ip: 192.168.250.105  #HostOnly interface
+  interfaces:  #Internal only interfaces
+  - ip: 192.168.15.15
+    auto_config: "True"      
+    network_name: 01-to-05
+    method: static
+    type: private_network
+  - ip: 192.168.51.15
+    auto_config: "True"
+    network_name: utopia
+    method: static
+    type: private_network
+  - ip: 5.5.5.10
+    auto_config: "True"
+    network_name: 5-5-5
+    method: static
+    type: private_network
